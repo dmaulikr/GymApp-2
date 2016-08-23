@@ -1,23 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import MyScene from './app/MyScene';
+import { View, Text, StyleSheet } from 'react-native';
 
-class gymApp extends Component {
+export default class MyScene extends Component {
+  static propTypes = {
+    title: React.PropTypes.string,
+  };
+  static defaultProps = {
+    title: 'MyScene',
+  };
+
   render() {
     return (
-      <MyScene />
-    );
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          <Text>Hi! My name is {this.props.title}.</Text>
+        </Text>
+      </View>
+    )
   }
 }
 
@@ -39,5 +38,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
-AppRegistry.registerComponent('gymApp', () => gymApp);

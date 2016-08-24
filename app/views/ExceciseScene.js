@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default class Exercise extends Component {
+export default class ExceciseScene extends Component {
   render() {
     return (
       <View>
-        <Text>Exercise page.</Text>
+        <Text>Exercise scene page.</Text>
       </View>
     )
   }

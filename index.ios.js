@@ -1,43 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  Navigator,
-  TouchableHighlight,
-} from 'react-native';
-import MyScene from './app/MyScene';
+import {Text, View, AppRegistry, Navigator} from 'react-native';
+import ExceciseScene from './app/views/ExceciseScene';
 
 export default class gymApp extends Component {
+
+  renderScene (route, navigator) {
+    if (route.name === 'Main') {
+      console.log('Go')
+      return <ExceciseScene />;
+    }
+  }
+
   render() {
     return (
       <Navigator
-        initialRoute={{ title: 'Gabo GymApp', index: 0 }}
-        renderScene={(route, navigator) =>
-          <MyScene
-            title={route.title}
-
-            // Function to call when a new scene should be displayed
-            onForward={ () => {
-              const nextIndex = route.index + 1;
-              navigator.push({
-                title: 'Scene ' + nextIndex,
-                index: nextIndex,
-              });
-            }}
-
-            // Function to call to go back to the previous scene
-            onBack={() => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
-        }
+        style={{ flex:1 }}
+        initialRoute={{ name: 'Main' }}
+        renderScene={ this.renderScene }
       />
     )
   }

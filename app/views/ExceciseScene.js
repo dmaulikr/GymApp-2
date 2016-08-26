@@ -6,19 +6,17 @@ export default class ExceciseScene extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Exercise scene page.</Text>
-        <TouchableHighlight onPress={ () => this._navigate() }>
-          <Text>Go to DailySet Scene</Text>
-        </TouchableHighlight>
+      <View style={styles.container}>
+        <Text>This are your Exercises for {this.props.day}</Text>
       </View>
     )
   }
-
-  _navigate(){
-    this.props.navigator.push({
-      name: 'DailySet', // Matches route.name
-    })
-  }
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    alignItems:'center',
+    marginTop: 50,
+  },
+});
